@@ -42,3 +42,13 @@ def faces_p(image_path):
         return False
     else:
         return True
+
+def extract_faces(image_path):
+    """ Extract the face and save."""
+    img = face_recognition.load_image_file(image_path)
+    face_locations = face_recognition.face_locations(img)
+    for faces in face_locations:
+        top, right, bottom, left = faces
+        face_img = img[top:bottom, left:right]
+        pil_img = Image.fromarray(face_img)
+        pil_img.save("face.jpg")
