@@ -52,3 +52,13 @@ def extract_faces(image_path):
         face_img = img[top:bottom, left:right]
         pil_img = Image.fromarray(face_img)
         pil_img.save("face.jpg")
+
+def face_comparison():
+    if faces_p("verify.jpg") == True:
+        extract_faces("verify.jpg")
+        personal_img = face_recognition.load_image_file("io.jpg")
+        new_img = face_recognition.load_image_file("face.jpg")
+        personal_encoding = face_recognition.face_encodings(personal_img)[0]
+        new_img_encoding = face_recognition.face_encodings(new_img)[0]
+        comparison_result = face_recognition.compare_faces([personal_encoding], new_img_encoding)
+        return comparison_result[0]
