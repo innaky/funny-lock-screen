@@ -62,3 +62,22 @@ def face_comparison():
         new_img_encoding = face_recognition.face_encodings(new_img)[0]
         comparison_result = face_recognition.compare_faces([personal_encoding], new_img_encoding)
         return comparison_result[0]
+
+while True:
+    for event in pygame.event.get():
+        if event.type == KEYDOWN:
+            if event.key == K_f:
+                pygame.quit()
+                exit()
+
+            if event.key == K_h:
+                capture = not capture
+                if capture:
+                    capture_img()
+                    if face_comparison() == True:
+                        pygame.quit()
+                        exit()
+                    else:
+                        continue
+
+    pygame.display.update()
