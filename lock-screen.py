@@ -16,7 +16,7 @@ screen_xy = (data_screen.current_w, data_screen.current_h)
 screen = pygame.display.set_mode(screen_xy, FULLSCREEN, 32)
 screen.fill((0,0,0))
 
-dic_images = {"3286x1080": "back3286x1080.png"}
+dic_images = {"3286x1080": "back3286x1080.png", "1024x768": "back1024x768.jpg"}
 
 if screen_xy == (3286, 1080):
     screen = pygame.display.set_mode((3286, 1080), FULLSCREEN, 32)
