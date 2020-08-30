@@ -24,6 +24,12 @@ if screen_xy == (3286, 1080):
     image_dimention_rend = pygame.image.load(image_dimention).convert_alpha()
     screen.blit(image_dimention_rend, (0, 0))
 
+if screen_xy == (1024, 768):
+    screen = pygame.display.set_mode((1024, 768), FULLSCREEN, 32)
+    image_dimention = dic_images["1024x768"]
+    image_dimention_rend = pygame.image.load(image_dimention).convert()
+    screen.blit(image_dimention_rend, (0, 0))
+
 def capture_img():
     image = cv2.VideoCapture(0)
     check, frame = image.read()
